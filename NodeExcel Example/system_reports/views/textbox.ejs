@@ -1,0 +1,42 @@
+ <div  class="col-md-12">
+<div class="row">
+<div class ="page-header swiper-wrapper" style="margin-left:20px;">
+</div>
+
+ <div class="clearfix"></div>
+	  <form role="form">
+	  
+	<% for(var i=0; i<supplies.length; i++) {%>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="exampleInputEmail1"><%= supplies[i].caption_name %></label>
+			<input type="hidden" name="search_field[]" class="form-control" value="<%= supplies[i].field_name %>">
+            <input type="text" name="search_value[]" class="form-control" id="<%= supplies[i].field_name %>" >
+				<input type="hidden" class="form-control" id="search_table_name" value="<%= supplies[i].table_name %>" name="table_name">
+	        <input type="hidden" class="form-control" id="search_table_id" value="<%= supplies[i].table_id %>" name="table_id">	
+        </div>
+	
+		<% } %>
+       <div class="clearfix"></div>
+        <div class="form-group col-xs-8 col-sm-4 col-md-4 col-lg-4">
+            <button type="button"  class="btn btn-primary search_submit">Search</button>
+        </div>
+    </form>
+    <div class="clearfix"></div>
+
+    <br /><br />
+	</div>
+</div>
+<script>
+function capitalize(string,a) {
+    var tempstr = string.toLowerCase();
+    if (a == false || a == undefined)
+        return tempstr.replace(tempstr[0], tempstr[0].toUpperCase());
+    else {
+        return tempstr.split(" ").map(function (i) { return i[0].toUpperCase() + i.substring(1) }).join(" ");
+    }
+}
+$(document).ready(function(){
+ $('.swiper-wrapper').append('<h2>'+capitalize('<%= supplies[1].category_name %>',true) +':   <small> ' +capitalize('<%= supplies[1].menu_name %>',true) +'</small></h2>');
+
+});
+</script>

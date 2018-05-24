@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <html>
+	<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	</head>
+	<body>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Bootstrap Admin Theme v3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+
+<style>
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: right;
+    padding: 8px 16px;
+    text-decoration: none;
+	 border: 1px solid #ddd; /* Gray */
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+.message_div
+{
+color:red;
+text-align:center;
+
+}
+.error{
+	display: none;
+	margin-left: 10px;
+}
+
+.error_show{
+	color: red;
+	margin-left: 10px;
+}
+
+</style>
+  </head>
+  <body>
+
+  	<div class="header">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-5">
+	              <!-- Logo -->
+	              <div class="logo">
+	                 <h1><a href="">Excel Data</a></h1>
+	              </div>
+	           </div>
+	           <div class="col-md-5">
+	              <div class="row">
+	                <div class="col-lg-12">
+	                  <div class="input-group form">
+
+	                  </div>
+	                </div>
+	              </div>
+	           </div>
+	           <div class="col-md-2">
+	              <div class="navbar navbar-inverse" role="banner">
+	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+
+	                    <ul class="nav navbar-nav">
+	                      <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+	                        <ul class="dropdown-menu animated fadeInUp">
+	                         <!-- <li><a href="">Profile</a></li>-->
+	                          <li><a href="/logout">Logout</a></li>
+	                        </ul>
+	                      </li>
+	                    </ul>
+	                  </nav>
+	              </div>
+	           </div>
+	        </div>
+	     </div>
+	</div>
+
+    <div class="page-content">
+    	<div class="row">
+		  <div class="col-md-2">
+
+		  	<div class="sidebar content-box" style="display: block;">
+
+                <ul class="nav">
+
+
+                    <!-- Main menu -->
+                    <li class="current"><a href="/dashboard"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+				<%if (user ==0) { %>
+					 <li id="adduserli" class="nav-links"><a href="#" data-page="adduser" ><i class="glyphicon glyphicon-user"></i>Add User </a></li>
+					<!--  <li id="addcatg" class="nav-links"><a href="#" data-page="addcatg" ><i class="glyphicon glyphicon-user"></i>Add Category </a></li> -->
+
+					<% } %>
+				</ul>
+				<ul  style="color:black;font-size:15px;list-style-type:none;margin-left:-30px;margin-bottom:20px;">
+					   <li><a href="#" role="button" data-toggle="collapse" data-target="#collapseTwo" data-parent="#accordion"><i class="glyphicon glyphicon-list"></i>&nbsp;&nbsp;Category Menu</a>	<input type="hidden" id="resultdata" value="<%= resultdata %>" name="resultdata"></li>
+					   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						  <ul id="tree1">
+						  </ul>
+					   </div>
+
+                    </li>
+
+                </ul>
+
+
+             </div>
+		  </div>
+		     <div class="page-content" id="table_div">
+
+
+  </div>
+
+		  <div  class="col-md-10">
+		  	<div class="row">
+		  		<div id="table_data" class="col-md-12" style="display:none;">
+			<div class="content-box-large">
+							  	<div class="row">
+		  		<div class="col-md-12 panel-warning">
+		  			<div class="content-box-header panel-heading">
+	  					<div class="panel-title "> Data</div>
+						<div class="panel-options iconchange">
+										<a href="#" data-rel="collapse" class="add_data"><i class="glyphicon glyphicon-plus"></i></a>
+										<input type="hidden" value="" id="hidden_menu" name="hidden_menu">
+							</div>
+							<input type="hidden" value="" id="hidden_number" name="hidden_number">
+
+		  			</div>
+
+			  <div  class="col-md-6">
+										<div class="row">
+
+									</div>
+									 </div>
+					  <div id="searchbox">
+
+						</div>
+						<div class="content-box-large box-with-header" id="datalist_div">
+
+
+							<br /><br />
+						</div>
+
+
+							<br /><br />
+						</div>
+
+
+		  		</div>
+
+		  	</div>
+			</div>
+				<%if (user ===0 || user ===1) { %>
+
+			<div id="main_div">
+			<div class="col-md-6">
+		  			<div class="row">
+		  				<div class="col-md-12">
+		  					<div class="content-box-header">
+			  					<div class="panel-title">Upload Excel Data</div>
+
+								<div class="panel-options">
+									<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+									<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+								</div>
+				  			</div>
+				  			<div class="content-box-large box-with-header">
+							<form  id        =  "uploadForm"
+			enctype   =  "multipart/form-data"
+			action    =  "upload"
+			method    =  "post">
+  <div class="form-group">
+   <label for="exampleInputEmail1">Upload Excel</label>
+   <input type="file" name="file" required/>
+  </div>
+
+ 	<input type="submit"  class="btn btn-primary" value="Upload" name="submit">
+		</form>
+
+
+
+
+								<br /><br />
+							</div>
+		  				</div>
+		  			</div>
+
+		  		</div>
+			<div class="col-md-12">
+		  			<div class="content-box-large">
+		  				<div class="panel-heading content-box-header">
+							<div class="panel-title">Define table structure</div>
+
+
+						</div>
+		  				<div class="panel-body">
+						<div  style="color:red;font-weight: bold;"id="exist_message"></div>
+		  					<form action="data" id="dataupload" method="post">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Menu</label>
+    <input type="text" class="form-control" id="menu_name" name="menu_name" aria-describedby="menu"  value="<%= filename %>" required>
+    <small id="menu_name" class="form-text text-muted">menu name to access the data</small>
+	<span class="error">This field is required</span>
+  </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Category</label>
+    <select class="form-control" id="category_type" name="category_type">
+   <option value="1">Networking</option>
+   <option value="2">system</option>
+   <option value="3">accoseries</option>
+  </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Table</label>
+    <input type="text" class="form-control" id="table_name" name="table_name"  value="<%= table_name %>"  pattern="^[a-zA-Z0-9_]*$" title="mysql table name format" required><span style="color:red;font-weight: bold;" id="table_exist"></span>
+  </div>
+  <div class="form-group">
+   <label for="exampleInputPassword1">Field Details</label>
+    <div class="col-xs-12">
+	<input type="hidden" value="<%= sendata %>" name="jsondata">
+
+     <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Field Name</th>
+		<th>Field Caption</th>
+        <th>Field Type</th>
+		<th>Field Size</th>
+		<th> Display this field </th>
+		<th>Include field in search  </th>
+      </tr>
+    </thead>
+    <tbody>
+	 <% for(var i=0; i<myArray.length; i++) { %>
+      <tr>
+        <td>
+   <input type="text" class="form-control" id="field_name" value="<%= myArray[i] %>" name="field_name[]" aria-describedby="name" pattern="^[a-zA-Z0-9_]*$" title="follow mysql field name format" required readonly></td>
+   <td>
+   <input type="text" class="form-control" id="field_caption_<%= i %>" value="<%= myArray[i] %>" name="field_caption[]" aria-describedby="field_caption" ></td>
+        <td><select class="form-control" id="field_type" name="field_type[]">
+   <option>varchar</option>
+   <option>int</option>
+   <option>text</option>
+   <option>date</option>
+  </select></td>
+  <td> <input type="text" class="form-control" id="field_size" name="field_size[]" aria-describedby="size" value="255" ></td>
+  <td><input type="checkbox" id="mycheck_<%= i %>"  name="dispaly_status[]" checked>
+
+
+<input id="cpatext_<%= i %>"type="text" style="display:none;" class="form-control" value="data" name="cap_name[]" aria-describedby="name" >
+</td>
+  <td><input type="checkbox" id="mycheck_search_<%= i %>"  name="search_status[]" <%if(i<3) { %> Checked <% } %>>
+
+
+<input id="searchtext_<%= i %>"type="text" style="display:none;" class="form-control" value="1" name="search_status_name[]" aria-describedby="name" >
+</td>
+      </tr>
+         <% } %>
+    </tbody>
+  </table>
+</div>
+
+   </div>
+
+  <div class="form-group" id="data_submit">
+    <div class="col-xs-3" style=" margin-top:10px;">
+  <button type="button" class="btn btn-primary ex_data_submit" >Submit</button>
+  </div>
+  </div>
+</form>
+
+		  				</div>
+		  			</div>
+		  		</div>
+
+
+
+		  	</div>
+<% } %>
+      </div>
+			<div class="col-md-12"  style="display:none;" id="userbox" >
+				<div class="content-box-large">
+					<div class="row">
+						<div class="col-md-12 panel-warning">
+								<div class="content-box-header panel-heading">
+									<div class="panel-title ">User Management</div>
+										<div class="panel-options iconchange">
+										<a href="#" data-rel="collapse" class="user_list"><i class="glyphicon glyphicon-list"></i></a>
+										</div>
+								</div>
+
+									   <div  class="col-md-6">
+										<div class="row">
+									<div  style="color:green;font-weight: bold;"id="user_message"></div>
+									</div>
+									 </div>
+						<div class="content-box-large box-with-header" id="userdata">
+
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="col-md-12"  style="display:none;" id="categorybox" >
+				<div class="content-box-large">
+					<div class="row">
+						<div class="col-md-12 panel-warning">
+								<div class="content-box-header panel-heading">
+									<div class="panel-title ">Add Categories</div>
+
+								</div>
+
+									   <div  class="col-md-6">
+										<div class="row">
+									<div  style="color:green;font-weight: bold;"id="catg_message"></div>
+									</div>
+									 </div>
+						<div class="content-box-large box-with-header" id="categorydata">
+
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</div>
+</div>
+
+
+
+<footer>
+         <div class="container">
+
+            <div class="copy text-center">
+               Copyright 2017 <a href='#'>Website</a>
+            </div>
+
+         </div>
+      </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../javascripts/custom.js"></script>
+		<script type="text/javascript">
+</script>
+  </body>
+</html>

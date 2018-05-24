@@ -1,0 +1,24 @@
+<table class="bordered">
+        <thead>
+          <tr>
+              <th data-field="no">num</th>
+              <th data-field="title">title</th>
+              <th data-field="date">date</th>
+              <th data-field="viewCount">count</th>
+              <th data-field=""></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        <% for(var i = 0; i<contents.length; i++) { %>
+            <tr>
+
+                <td><%= contents[i].con_no %></td>
+                <td><a href="/adm/contents/detail/<%= contents[i].con_no %>"><%= contents[i].con_title %></a></td>
+                <td><%= contents[i].con_regDate %></td>
+                <td><%= contents[i].con_viewCount %></td>
+                <td><a href="/adm/contents/delete/<%= contents[i].con_no %>">delete</a></td>
+            </tr>
+        <% } %> 
+        </tbody>
+      </table>

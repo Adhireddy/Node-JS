@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <html>
+	<head>
+	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	</head>
+	<body>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Bootstrap Admin Theme v3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+
+<style>
+
+</style>
+  </head>
+  <body>
+  
+  	<div class="header">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-5">
+	              <!-- Logo -->
+	              <div class="logo">
+	                 <h1><a href="">Excel Data</a></h1>
+	              </div>
+	           </div>
+	           <div class="col-md-5">
+	              <div class="row">
+	                <div class="col-lg-12">
+	                  <div class="input-group form">
+	                       <input type="text" class="form-control" placeholder="Search...">
+	                       <span class="input-group-btn">
+	                         <button class="btn btn-primary" type="button">Search</button>
+	                       </span>
+	                  </div>
+	                </div>
+	              </div>
+	           </div>
+	           <div class="col-md-2">
+	              <div class="navbar navbar-inverse" role="banner">
+	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+					
+	                    <ul class="nav navbar-nav">
+	                      <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+	                        <ul class="dropdown-menu animated fadeInUp">
+	                          <li><a href="">Profile</a></li>
+	                          <li><a href="">Logout</a></li>
+	                        </ul>
+	                      </li>
+	                    </ul>
+	                  </nav>
+	              </div>
+	           </div>
+	        </div>
+	     </div>
+	</div>
+
+    <div class="page-content">
+    	<div class="row">
+		  <div class="col-md-2">
+		  	<div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li class="current"><a href="/dashboard"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+					    <li class="nav-links"><a href="#" data-page="adduser" ><i class="glyphicon glyphicon-user"></i>Add User </a></li>
+					 <% supplies.forEach(function (data) { %>
+						<tr>  
+							<li class="nav-links"><a href="#" data-page="<%= data.id %>"><i class="glyphicon glyphicon-stats"></i> <%= data.menu_name %></a></li>
+						</tr>                                   
+					 <% }) %>
+				
+					<!--
+                  
+                    <li><a href=""><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
+                    <li><a href=""><i class="glyphicon glyphicon-list"></i> Tables</a></li>
+                    <li><a href=""><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
+                    <li><a href=""><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
+                    <li><a href=""><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
+                    <li class="submenu">
+                         <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> Pages
+                            <span class="caret pull-right"></span>
+                         </a>
+                         <!-- Sub menu -->
+                         <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="signup.html">Signup</a></li>
+                        </ul>
+                    </li>
+                </ul>
+             </div>
+		  </div>
+		     <div class="page-content" id="table_div">
+
+
+  </div>
+    
+		  <div  class="col-md-10">
+		  	<div class="row">
+		  		<div id="table_data" class="col-md-12" style="display:none;">
+			<div class="content-box-large">
+							  	<div class="row">
+		  		<div class="col-md-12 panel-warning">
+		  			<div class="content-box-header panel-heading">
+	  					<div class="panel-title "> Data</div>
+						<div class="panel-options iconchange">
+										<a href="#" data-rel="collapse" class="add_data"><i class="glyphicon glyphicon-plus"></i></a>
+										<input type="hidden" value="" id="hidden_menu" name="hidden_menu">
+							</div>
+						
+		  			</div>
+					<div class="content-box-large box-with-header">
+				   <div  id="search_div">
+					<form action="/search/process" method="post">
+					<input type="text" class="form-control web-search-box" id="keyword" placeholder="search" name="keyword" value=''>
+					<div id="search" class="search col-sm-1"><img src="../../page_imgs/fixed_img/icon_search.png"></div>
+					<button type="button" id="" class="btn btn-primary search_submit login-button">Add data</button>
+					</form>
+					</div>
+		  			<div  id="datalist_div">
+			  			 
+						<br /><br />
+					</div>
+					</div>
+				
+		  		</div>
+		  	</div>
+		  	</div>
+			</div>
+			<div id="main_div">
+			<div class="col-md-6">
+		  			<div class="row">
+		  				<div class="col-md-12">
+		  					<div class="content-box-header">
+			  					<div class="panel-title">Upload Excel Data</div>
+								
+								<div class="panel-options">
+									<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+									<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+								</div>
+				  			</div>
+				  			<div class="content-box-large box-with-header">
+							<form  id        =  "uploadForm"
+			enctype   =  "multipart/form-data"
+			action    =  "upload"
+			method    =  "post">
+  <div class="form-group">
+   <label for="exampleInputEmail1">Upload Excel</label>
+   <input type="file" name="file" />
+  </div>
+
+ 	<input type="submit"  class="btn btn-primary" value="Upload" name="submit">
+		</form>
+
+				  				
+					  				
+								<br /><br />
+							</div>
+		  				</div>
+		  			</div>
+		
+		  		</div>
+			<div class="col-md-12">
+		  			<div class="content-box-large">
+		  				<div class="panel-heading content-box-header">
+							<div class="panel-title">Define table structure</div>
+							
+						
+						</div>
+		  				<div class="panel-body">
+		  					<form action="data" method="post">
+							
+  <div class="form-group">
+    <label for="exampleInputEmail1">Menu</label>
+    <input type="text" class="form-control" id="menu_name" name="menu_name" aria-describedby="menu"  value="<%= filename %>">
+    <small id="menu_name" class="form-text text-muted">menu name to access the data</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Table</label>
+    <input type="text" class="form-control" id="table_name" name="table_name"  value="<%= table_name %>">
+  </div>
+  <div class="form-group">
+   <label for="exampleInputPassword1">Field Details</label>
+    <div class="col-xs-12">
+	<input type="hidden" value="<%= sendata %>" name="jsondata">
+     <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Field Name</th>
+		<th>Field Caption</th>
+        <th>Field Type</th>
+		<th>Field Size</th>
+		<th>Display </th>
+      </tr>
+    </thead>
+    <tbody>
+	 <% for(var i=0; i<myArray.length; i++) { %>
+      <tr>
+        <td> 
+   <input type="text" class="form-control" id="field_name" value="<%= myArray[i] %>" name="field_name[]" aria-describedby="name" ></td>
+   <td> 
+   <input type="text" class="form-control" id="field_caption_<%= i %>" value="<%= myArray[i] %>" name="field_caption[]" aria-describedby="field_caption" ></td>
+        <td><select class="form-control" id="field_type" name="field_type[]">
+   <option>varchar</option>
+   <option>int</option>
+   <option>text</option>
+   <option>date</option>
+  </select></td>
+  <td> <input type="text" class="form-control" id="field_size" name="field_size[]" aria-describedby="size" value="255" ></td>
+  <td><input type="checkbox" id="mycheck_<%= i %>"  name="dispaly_status[]" >
+
+  Display this field
+<input id="cpatext_<%= i %>"type="text" style="display:none;" class="form-control" value="" name="cap_name[]" aria-describedby="name" >
+</td>
+      </tr>
+         <% } %>
+    </tbody>
+  </table>  
+</div>
+   
+   </div>
+  
+  <div class="form-group">
+    <div class="col-xs-3" style=" margin-top:10px;">
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  </div>
+</form>
+
+		  				</div>
+		  			</div>
+		  		</div>
+
+		  		
+		
+		  	</div>
+
+      </div>
+			<div class="col-md-12"  style="display:none;" id="userbox" >
+				<div class="content-box-large">
+					<div class="row">
+						<div class="col-md-12 panel-warning">
+								<div class="content-box-header panel-heading">
+									<div class="panel-title ">User Management</div>						
+										<div class="panel-options iconchange">
+										<a href="#" data-rel="collapse" class="user_list"><i class="glyphicon glyphicon-list"></i></a>
+										</div>
+								</div>
+						<div class="content-box-large box-with-header" id="userdata">
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+							
+	</div>
+</div>
+
+<footer>
+         <div class="container">
+         
+            <div class="copy text-center">
+               Copyright 2017 <a href='#'>Website</a>
+            </div>
+            
+         </div>
+      </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+	<script>
+	//$('#area').hide();
+
+	$(function () {
+   $("input[type=checkbox]").click(function() {
+
+	  var data =this.id;
+	  var check_box_id='#'+data;
+	  var arr = data.split('_');
+	  var textbox_id= '#cpatext_'+arr[1];	
+	   if ($(this).is(':checked')==true){
+	  var cpation='#field_caption_'+arr[1];
+   	var caption_val=$(cpation).val();
+   
+	   $(textbox_id).val(caption_val);
+	   
+	}
+	else
+	{
+	  $(textbox_id).hide();
+	}
+ });
+ 
+});
+	$.ajax({
+  url: '/',
+  complete: function(data) {
+    console.log(data);
+  }
+});
+$('.nav-links a').click(function(e){
+
+ var page = $(this).attr('data-page');
+ $('#hidden_menu').val(page)
+  $('#excelDataTable tbody').remove();
+ if(page=='adduser')
+ {
+   $('#userdata').empty();
+ 
+   $.ajax({
+		  method: "get",
+		  url: "/addnewuser",
+		  success: function(response){	
+		 
+				$('#main_div').hide();
+				$('#table_data').hide();
+				
+			    $('#userbox').show();
+				$('#userdata').append(response);
+	
+		   }
+    });
+ }
+ else
+ {
+    $(this).find('i').toggleClass('glyphicon-list').toggleClass('glyphicon-plus');
+	$(this).removeClass('data_list');
+	$(this).addClass('add_data');
+  listing(page);
+ }
+});
+$("#userbox").on("click",".user_submit" ,function(){
+					
+									var name = $("#name").val();
+									var email = $("#email").val();
+									var password = $("#password").val();
+									var user_role = $("#user_role").val();
+									var dataString = 'name='+ name + '&email='+ email + '&password='+ password + '&user_role='+ user_role;
+									if(name==''||email==''||password==''||user_role=='')
+										{
+										alert("Please Fill All Fields");
+										}
+										else
+										{
+										
+										$.ajax({
+												method: "post",
+												url: "/api/register",
+												data: dataString,
+												cache: false,
+														success: function(result){
+														alert('Inserted Successfully');
+														}
+														});
+												}
+										return false;
+						});
+ $('.iconchange').on("click",".user_list" ,function(){
+    $(this).find('i').toggleClass('glyphicon-plus').toggleClass('glyphicon-list');
+	$('a.user_list').removeClass('user_list');
+    $(this).addClass('add_user');    
+	 $.ajax({
+		  method: "get",
+		  url: "/list_user",
+		  success: function(response){	
+		   $('#userdata').empty();
+		 $('#userdata').append(response);
+		  }
+	});
+});
+ $('.iconchange').on("click",".add_user" ,function(){
+    $(this).find('i').toggleClass('glyphicon-plus').toggleClass('glyphicon-list');
+	$(this).removeClass('add_user');
+	$(this).addClass('user_list');
+	 $.ajax({
+		  method: "get",
+		  url: "/addnewuser",
+		  success: function(response){	
+		   $('#userdata').empty();
+		   $('#userdata').append(response);
+		  }
+	});
+});
+ $('.iconchange').on("click",".add_data" ,function(){
+   
+    var menu_id=$('#hidden_menu').val();
+    $(this).find('i').toggleClass('glyphicon-list').toggleClass('glyphicon-plus');
+	  $(this).removeClass('add_data');
+   	      $(this).addClass('data_list');
+	 $.ajax({
+		  method: "get",
+		  url: "/addnewdata/"+menu_id,
+
+		  success: function(response){	
+		
+		   $('#datalist_div').empty();
+		   $('#datalist_div').append(response);
+		      
+		  }
+	});
+});
+ $('.iconchange').on("click",".data_list" ,function(){
+  var page=$('#hidden_menu').val();
+   $('#datalist_div').empty();
+   $(this).find('i').toggleClass('glyphicon-list').toggleClass('glyphicon-plus');
+	$(this).removeClass('data_list');
+	$(this).addClass('add_data');
+	listing(page);
+});
+
+function addAllColumnHeaders(myList, selector) {
+  var columnSet = [];
+  var headerTr$ = $('<tr/>');
+
+  for (var i = 0; i < myList.length; i++) {
+    var rowHash = myList[i];
+    for (var key in rowHash) {
+      if ($.inArray(key, columnSet) == -1) {
+        columnSet.push(key);
+        headerTr$.append($('<th/>').html(key));
+      }
+    }
+  }
+  $(selector).append(headerTr$);
+
+  return columnSet;
+}
+$("#table_data").on("click",".data_submit" ,function(){
+					             var datarr = [];
+								 var fieldarr = [];
+								  $('input[name="fielddata[]"]').each(function(){
+										datarr.push($(this).val());
+									});
+								
+								    $('input[name="field_name[]"]').each(function(){
+										  fieldarr.push($(this).val());
+										});
+
+		
+									var table_name = $("#table_name").val();
+									var table_id = $("#table_id").val();
+									var dataString ='datarr='+ datarr + '&tablename='+ table_name + '&fieldarr='+ fieldarr;
+
+									
+									$.ajax({
+												method: "post",
+												url: "/inserttabledata",
+												data:dataString,
+												cache: false,
+														success: function(result){
+														     alert('Inserted Successfully');
+														}
+														});
+												
+										return false;
+
+									
+						});
+$("#search_div").on("click",".search_submit" ,function(){
+					              var keyword=$('#keyword').val();
+								  var menuid=$('#hidden_menu').val();
+
+								  var dataString ='keyword='+ keyword + '&menuid='+ menuid;
+								$.ajax({
+												method: "post",
+												url: "/search/process",
+												data:dataString,
+												cache: false,
+														success: function(result){
+														     alert('Inserted Successfully');
+														}
+														});
+												
+										return false;
+						});
+function listing(page)
+{
+$('#datalist_div').empty();
+$.ajax({
+  method: "get",
+  url: "/api/"+page,
+  success: function(response){
+   var selector='#datalist_div';
+  $(selector).append('<table class="table table-striped table-bordered "  id="data">' );
+var myList = JSON.parse(response);
+ var columns = addAllColumnHeaders(myList, '#data');
+
+  for (var i = 0; i < myList.length; i++) {
+    var row$ = $('<tr/>');
+    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      var cellValue = myList[i][columns[colIndex]];
+      if (cellValue == null) cellValue = "";
+      row$.append($('<td/>').html(cellValue));
+    }
+	$('#main_div').hide();
+	$('#adduser').hide();
+	$('#userbox').hide();
+	$('#table_data').show();
+
+  $(selector).append( '</table>' );
+   $('#data').append(row$);
+ 
+     }
+  }
+ });
+}
+</script>
+  </body>
+</html>
+
+			
